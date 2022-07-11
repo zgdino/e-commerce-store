@@ -15,6 +15,7 @@ import {
 } from './pages'
 
 function App() {
+  // Navbar, Sidebar, (something inbetween) and Footer are allways displayed no matter what → that is why they are out of the router
   return (
     <Router>
       <Navbar />
