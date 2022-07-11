@@ -3,7 +3,16 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { Navbar, Sidebar, Footer } from './components'
 import styled from 'styled-components'
 
-import { Home } from './pages'
+import {
+  Home,
+  Products,
+  SingleProduct,
+  About,
+  Cart,
+  Error,
+  Checkout,
+  PrivateRoute,
+} from './pages'
 
 function App() {
   return (
