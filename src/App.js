@@ -16,10 +16,34 @@ import {
 
 function App() {
   return (
-    <div>
-      <h4>Online Store</h4>
-      <Home />
-    </div>
+    <Router>
+      <Navbar />
+      <Sidebar />
+      <Switch>
+        <Route exact path='/'>
+          <Home />
+        </Route>
+        <Route exact path='/about'>
+          <About />
+        </Route>
+        <Route exact path='/cart'>
+          <Cart />
+        </Route>
+        <Route exact path='/products'>
+          <Products />
+        </Route>
+        {/* route for SingleProducts is different - single-ing out specific product out of Products ... determined by :id; SingleProduct will have functionality to determine which product to be shown*/}
+        <Route exact path='/products/:id' children={<SingleProduct />} />
+        {/* Checkout component will eventually be wrapped in a PrivateRoute making sure that only logged in visitors have access */}
+        <Route exact path='/checkout'>
+          <Checkout />
+        </Route>
+        <Route path='*'>
+          <Error />
+        </Route>
+      </Switch>
+      <Footer />
+    </Router>
   )
 }
 
