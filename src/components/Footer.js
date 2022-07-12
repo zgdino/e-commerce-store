@@ -4,6 +4,7 @@ const Footer = () => {
   return (
     <Wrapper>
       <h5>
+        {/* allways display the current year */}
         &copy;{new Date().getFullYear()}
         <span> Online Store</span>
       </h5>
