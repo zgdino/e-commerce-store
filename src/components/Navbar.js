@@ -12,6 +12,7 @@ const Nav = () => {
   return <NavContainer>
     <div className="nav-center">
       <div className="nav-header">
+        {/* every time clicked will navigate back to the homepage */}
         <Link to='/'>
           <img src={logo} alt="store logo" />
         </Link>
