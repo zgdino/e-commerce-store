@@ -17,7 +17,7 @@ const Nav = () => {
           <Link to='/'>
             <img src={logo} alt='store logo' />
           </Link>
-          <button type='button' className='button'>
+          <button type='button' className='nav-toggle'>
             <FaBars />
           </button>
         </div>
@@ -32,6 +32,7 @@ const Nav = () => {
             )
           })}
         </ul>
+        <CartButtons />
       </div>
     </NavContainer>
   )
