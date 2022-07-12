@@ -9,16 +9,32 @@ import { useProductsContext } from '../context/products_context'
 import { useUserContext } from '../context/user_context'
 
 const Nav = () => {
-  return <NavContainer>
-    <div className="nav-center">
-      <div className="nav-header">
-        {/* every time clicked will navigate back to the homepage */}
-        <Link to='/'>
-          <img src={logo} alt="store logo" />
-        </Link>
+  return (
+    <NavContainer>
+      <div className='nav-center'>
+        <div className='nav-header'>
+          {/* every time clicked will navigate back to the homepage */}
+          <Link to='/'>
+            <img src={logo} alt='store logo' />
+          </Link>
+          <button type='button' className='button'>
+            <FaBars />
+          </button>
+        </div>
+        <ul className='nav-links'>
+          {links.map((link) => {
+            // destructure each link, check utils → constants.js for more detail
+            const { id, text, url } = link
+            return (
+              <li key={id}>
+                <Link to={url}>{text}</Link>
+              </li>
+            )
+          })}
+        </ul>
       </div>
-    </div>
-  </NavContainer>
+    </NavContainer>
+  )
 }
 
 const NavContainer = styled.nav`
