@@ -19,6 +19,15 @@ const Sidebar = () => {
             <FaTimes />
           </button>
         </div>
+        <ul className="links">
+          {links.map(({id, text, url}) => {
+            return (
+              <li key={id}>
+                <Link to={url}>{text}</Link>
+              </li>
+            )
+          })}
+        </ul>
       </aside>
     </SidebarContainer>
   )
