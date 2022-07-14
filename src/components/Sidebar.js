@@ -20,6 +20,7 @@ const Sidebar = () => {
           </button>
         </div>
         <ul className="links">
+          {/* destructring each link in here instead afterwards - just one of the ways to do it */}
           {links.map(({id, text, url}) => {
             return (
               <li key={id}>
