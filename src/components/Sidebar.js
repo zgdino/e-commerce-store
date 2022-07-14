@@ -10,11 +10,18 @@ import { useUserContext } from '../context/user_context'
 
 const Sidebar = () => {
   const isOpen = true
-  return <SidebarContainer>
-    <aside className={`${isOpen ? 'sidebar show-sidebar' : 'show-sidebar'}`}>
-
-    </aside>
-  </SidebarContainer>
+  return (
+    <SidebarContainer>
+      <aside className={`${isOpen ? 'sidebar show-sidebar' : 'show-sidebar'}`}>
+        <div className='sidebar-header'>
+          <img src={logo} className='logo' alt='store logo' />
+          <button className='close-btn' type='button'>
+            <FaTimes />
+          </button>
+        </div>
+      </aside>
+    </SidebarContainer>
+  )
 }
 
 const SidebarContainer = styled.div`
