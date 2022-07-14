@@ -12,23 +12,27 @@ const Sidebar = () => {
   const isOpen = true
   return (
     <SidebarContainer>
-      <aside className={`${isOpen ? 'sidebar show-sidebar' : 'show-sidebar'}`}>
+      <aside className={`${isOpen ? 'sidebar show-sidebar' : 'sidebar'}`}>
         <div className='sidebar-header'>
           <img src={logo} className='logo' alt='store logo' />
           <button className='close-btn' type='button'>
             <FaTimes />
           </button>
         </div>
-        <ul className="links">
+        <ul className='links'>
           {/* destructring each link in here instead afterwards - just one of the ways to do it */}
-          {links.map(({id, text, url}) => {
+          {links.map(({ id, text, url }) => {
             return (
               <li key={id}>
                 <Link to={url}>{text}</Link>
               </li>
             )
           })}
+          <li>
+            <Link to='/checkout'>checkout</Link>
+          </li>
         </ul>
+        <CartButtons />
       </aside>
     </SidebarContainer>
   )
