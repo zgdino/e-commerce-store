@@ -26,6 +26,7 @@ const Sidebar = () => {
           {links.map(({ id, text, url }) => {
             return (
               <li key={id}>
+                {/* if each link clicked → close the sidebar and direct to the page clicked */}
                 <Link to={url} onClick={closeSidebar}>
                   {text}
                 </Link>
