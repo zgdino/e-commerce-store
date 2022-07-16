@@ -24,12 +24,12 @@ export const ProductsProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState)
 
   const openSidebar = () => {
-    // importing actions on top from actions.js
+    // importing actions on top from actions.js and functionality is in products.reducer.js
     dispatch({ type: SIDEBAR_OPEN })
   }
 
   const closeSidebar = () => {
-    // importing actions on top from actions.js
+    // importing actions on top from actions.js and functionality is in products.reducer.js
     dispatch({ type: SIDEBAR_CLOSE })
   }
 
