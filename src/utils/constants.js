@@ -18,6 +18,7 @@ export const links = [
   },
 ]
 
+// since icon is a <<component>>, react needs to be imported, unlike with links
 export const services = [
   {
     id: 1,
