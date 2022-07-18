@@ -33,6 +33,16 @@ export const ProductsProvider = ({ children }) => {
     dispatch({ type: SIDEBAR_CLOSE })
   }
 
+  const fetchProducts = async (url) => {
+    // axios is get by default, no need to specify
+    const response = await axios(url)
+    console.log(response)
+  }
+
+  useEffect(() => {
+    fetchProducts(url)
+  }, [])
+
   return (
     <ProductsContext.Provider value={{ ...state, openSidebar, closeSidebar }}>
       {children}
