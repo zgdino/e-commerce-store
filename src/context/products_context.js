@@ -45,7 +45,9 @@ export const ProductsProvider = ({ children }) => {
       // "data" is located in response.data, console.log it to see it for yourself
       const products = response.data
       dispatch({ type: GET_PRODUCTS_SUCCESS, payload: products })
-    } catch (error) {}
+    } catch (error) {
+      dispatch({ type: GET_SINGLE_PRODUCT_ERROR })
+    }
   }
 
   useEffect(() => {
