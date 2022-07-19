@@ -4,8 +4,18 @@ import { formatPrice } from '../utils/helpers'
 import { FaSearch } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 
-const Product = () => {
-  return <h4>product</h4>
+const Product = ({ image, name, price, id }) => {
+  return (
+    <Wrapper>
+      <div className='container'>
+        <img src={image} alt={name} />
+        {/* path to product (App.js) ends with its <<id>> */}
+        <Link to={`/products/${id}`} className='link'>
+          <FaSearch />
+        </Link>
+      </div>
+    </Wrapper>
+  )
 }
 
 const Wrapper = styled.article`
