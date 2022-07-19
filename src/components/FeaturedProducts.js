@@ -27,7 +27,8 @@ const FeaturedProducts = () => {
         <div className='underline'></div>
       </div>
       <div className='section-center featured'>
-        {featured.map((product) => {
+        {/* using slice to show only first three products */}
+        {featured.slice(0, 3).map((product) => {
           return <Product key={product.id} {...product} />
         })}
       </div>
