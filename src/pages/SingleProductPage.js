@@ -15,6 +15,27 @@ import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 
 const SingleProductPage = () => {
+  // if you console.log useParams it will give you an object with an id and that is why id is destructured from it
+  const { id } = useParams()
+  const {
+    single_product_loading: loading,
+    single_product_error: error,
+    single_product: product,
+    fetchSingleProduct,
+  } = useProductsContext()
+
+  useEffect(() => {
+    fetchSingleProduct(`s${url}${id}`)
+  }, [id])
+
+  if (loading) {
+    return <Loading />
+  }
+
+  if (error) {
+    return <Error />
+  }
+
   return <h4>single product page</h4>
 }
 
