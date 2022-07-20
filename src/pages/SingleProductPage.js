@@ -17,6 +17,7 @@ import { Link } from 'react-router-dom'
 const SingleProductPage = () => {
   // if you console.log useParams it will give you an object with an id and that is why id is destructured from it
   const { id } = useParams()
+  const history = useHistory()
   const {
     single_product_loading: loading,
     single_product_error: error,
@@ -27,6 +28,14 @@ const SingleProductPage = () => {
   useEffect(() => {
     fetchSingleProduct(`s${url}${id}`)
   }, [id])
+
+  useEffect(() => {
+    if (error) {
+      setTimeout(() => {
+        history.push('/')
+      }, 3000)
+    }
+  }, [error])
 
   if (loading) {
     return <Loading />
