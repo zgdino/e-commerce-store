@@ -1,4 +1,5 @@
 // formating the price number to look up to standard since the original price is without any format
+// 129999 → $1,299.99
 export const formatPrice = (number) => {
   const newNumber = Intl.NumberFormat('en-US', {
     style: 'currency',
