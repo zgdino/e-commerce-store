@@ -26,7 +26,7 @@ const SingleProductPage = () => {
   } = useProductsContext()
 
   useEffect(() => {
-    fetchSingleProduct(`s${url}${id}`)
+    fetchSingleProduct(`${url}${id}`)
   }, [id])
 
   useEffect(() => {
@@ -45,7 +45,21 @@ const SingleProductPage = () => {
     return <Error />
   }
 
-  return <h4>single product page</h4>
+  const {
+    name,
+    price,
+    description,
+    stock,
+    stars,
+    reviews,
+    id: sku,
+    company,
+    images,
+  } = product
+
+  return <Wrapper>
+    <PageHero title={name} product/>
+  </Wrapper>
 }
 
 const Wrapper = styled.main`
