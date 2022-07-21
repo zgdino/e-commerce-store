@@ -1,14 +1,18 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 
+// if images is undefined, make it an empty array with one object that has one value(url) of an empty string → doing this to avoid initial errors
 const ProductImages = ({ images = [{ url: '' }] }) => {
   // setting up the first image to be the one diplayed by default
   const [main, setMain] = useState(images[0])
 
   return (
     <Wrapper>
+      {/* ---- MAIN IMAGE ---- */}
       <img src={main.url} alt='main image' className='' />
+      {/* ---- GALLERY OF IMAGES ---- */}
       <div className='gallery'>
+        {/* index ~ id */}
         {images.map((image, index) => {
           return (
             <img
