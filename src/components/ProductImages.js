@@ -1,18 +1,30 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 
-const ProductImages = ({ images = [{url: ''}] }) => {
+const ProductImages = ({ images = [{ url: '' }] }) => {
   // setting up the first image to be the one diplayed by default
   const [main, setMain] = useState(images[0])
 
-  return <Wrapper>
-    <img src={main.url}  alt="main image" className='' />
-    <div className="gallery">
-      {images.map((image, index) => {
-        return <img src={image.url} alt={image.filename} key={index} onClick={() => setMain(images[index])} />
-      })}
-    </div>
-  </Wrapper>
+  return (
+    <Wrapper>
+      <img src={main.url} alt='main image' className='' />
+      <div className='gallery'>
+        {images.map((image, index) => {
+          return (
+            <img
+              src={image.url}
+              alt={image.filename}
+              key={index}
+              // once clicked make it the main image
+              onClick={() => setMain(images[index])}
+              // if this is image currently being displayed, make a slight border around it in gallery
+              className={`${image.url === main.url ? 'active' : null}`}
+            />
+          )
+        })}
+      </div>
+    </Wrapper>
+  )
 }
 
 const Wrapper = styled.section`
