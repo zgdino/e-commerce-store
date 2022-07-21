@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 
-const ProductImages = () => {
+const ProductImages = ({ images }) => {
+  // setting up the first image to be the one diplayed by default
+  const [main, setMain] = useState(images[0])
   return <h4>product images</h4>
 }
 
