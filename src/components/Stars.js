@@ -11,11 +11,15 @@ const Stars = ({ stars, reviews }) => {
   // {
   //   /* end star setup */
   // }
+  
 
+  // ---- STAR LOGIC ----
   // creating an array with the length of 5
   const tempStars = Array.from({ length: 5 }, (_, index) => {
+    // in the first iteration number will be 0 + 0.5 = 0.5
     const number = index + 0.5
     return (
+      // in the first iteration number = 0.5 so it will show one full star
       <span key={index}>
         {stars >= index + 1 ? (
           <BsStarFill />
@@ -27,6 +31,7 @@ const Stars = ({ stars, reviews }) => {
       </span>
     )
   })
+  // ---- END STAR LOGIC ----
 
   return (
     <Wrapper>
