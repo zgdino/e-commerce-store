@@ -13,11 +13,23 @@ const AddToCart = ({ product }) => {
     <Wrapper>
       <div className='colors'>
         <span> colors : </span>
-        <div>{
-            colors.map((color, index) => {
-              return <button key={index}>{index}</button>
-            })
-          }</div>
+        <div>
+          {colors.map((color, index) => {
+            return (
+              <button
+                key={index}
+                // dynamically assigning color of each button to match the color of the "color" property (this is inline style)
+                style={{ background: color }}
+                // changing the opacity from 0.5 to 1 on the selected one
+                className={`${mainColor === color ? 'color-btn active' : 'color-btn'}`}
+                onClick={() => setMainColor(color)}
+              >
+                {/* putting the checkmark on the selected one */}
+                {mainColor === color ? <FaCheck/> : null}
+              </button>
+            )
+          })}
+        </div>
       </div>
       <div className='btn-container'></div>
     </Wrapper>
