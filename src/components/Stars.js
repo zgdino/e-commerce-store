@@ -17,6 +17,50 @@ const Stars = ({ stars, reviews }) => {
           )}
         </span>
         {/* end star setup */}
+        {/* star setup */}
+        <span>
+          {stars >= 2 ? (
+            <BsStarFill />
+          ) : stars >= 1.5 ? (
+            <BsStarHalf />
+          ) : (
+            <BsStar />
+          )}
+        </span>
+        {/* end star setup */}
+        {/* star setup */}
+        <span>
+          {stars >= 3 ? (
+            <BsStarFill />
+          ) : stars >= 2.5 ? (
+            <BsStarHalf />
+          ) : (
+            <BsStar />
+          )}
+        </span>
+        {/* end star setup */}
+        {/* star setup */}
+        <span>
+          {stars >= 4 ? (
+            <BsStarFill />
+          ) : stars >= 3.5 ? (
+            <BsStarHalf />
+          ) : (
+            <BsStar />
+          )}
+        </span>
+        {/* end star setup */}
+        {/* star setup */}
+        <span>
+          {stars >= 5 ? (
+            <BsStarFill />
+          ) : stars >= 4.5 ? (
+            <BsStarHalf />
+          ) : (
+            <BsStar />
+          )}
+        </span>
+        {/* end star setup */}
       </div>
       <p className='reviews'>({reviews} customer reviews)</p>
     </Wrapper>
