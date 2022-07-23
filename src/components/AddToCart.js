@@ -23,8 +23,8 @@ const AddToCart = ({ product }) => {
   const decrease = () => {
     setAmount((oldAmount) => {
       let tempAmount = oldAmount - 1
-      if (tempAmount < 0) {
-        tempAmount = 0
+      if (tempAmount < 1) {
+        tempAmount = 1
       }
       return tempAmount
     })
@@ -55,6 +55,11 @@ const AddToCart = ({ product }) => {
         </div>
       </div>
       <div className='btn-container'>
+        {stock === amount ? (
+          <p className='warning'>No more in stock</p>
+        ) : (
+          <p className='in-stock'>In stock</p>
+        )}
         <AmountButtons
           amount={amount}
           increase={increase}
@@ -111,6 +116,14 @@ const Wrapper = styled.section`
   .btn {
     margin-top: 1rem;
     width: 140px;
+  }
+
+  .warning {
+    color: red;
+  }
+
+  .in-stock {
+    color: green;
   }
 `
 export default AddToCart
