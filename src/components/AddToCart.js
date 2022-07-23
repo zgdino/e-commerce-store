@@ -10,9 +10,25 @@ const AddToCart = ({ product }) => {
   const [mainColor, setMainColor] = useState(colors[0])
   const [amount, setAmount] = useState(1)
 
-  const increase = () => {}
+  const increase = () => {
+    setAmount((oldAmount) => {
+      let tempAmount = oldAmount + 1
+      if (tempAmount > stock) {
+        tempAmount = stock
+      }
+      return tempAmount
+    })
+  }
 
-  const decrease = () => {}
+  const decrease = () => {
+    setAmount((oldAmount) => {
+      let tempAmount = oldAmount - 1
+      if (tempAmount < 0) {
+        tempAmount = 0
+      }
+      return tempAmount
+    })
+  }
 
   return (
     <Wrapper>
