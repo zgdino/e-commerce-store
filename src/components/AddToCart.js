@@ -8,6 +8,11 @@ import AmountButtons from './AmountButtons'
 const AddToCart = ({ product }) => {
   const { id, stock, colors } = product
   const [mainColor, setMainColor] = useState(colors[0])
+  const [amount, setAmount] = useState(1)
+
+  const increase = () => {}
+
+  const decrease = () => {}
 
   return (
     <Wrapper>
@@ -21,17 +26,28 @@ const AddToCart = ({ product }) => {
                 // dynamically assigning color of each button to match the color of the "color" property (this is inline style)
                 style={{ background: color }}
                 // changing the opacity from 0.5 to 1 on the selected one
-                className={`${mainColor === color ? 'color-btn active' : 'color-btn'}`}
+                className={`${
+                  mainColor === color ? 'color-btn active' : 'color-btn'
+                }`}
                 onClick={() => setMainColor(color)}
               >
                 {/* putting the checkmark on the selected one */}
-                {mainColor === color ? <FaCheck/> : null}
+                {mainColor === color ? <FaCheck /> : null}
               </button>
             )
           })}
         </div>
       </div>
-      <div className='btn-container'></div>
+      <div className='btn-container'>
+        <AmountButtons
+          amount={amount}
+          increase={increase}
+          decrease={decrease}
+        />
+        <Link to='/cart' className='btn'>
+          add to cart
+        </Link>
+      </div>
     </Wrapper>
   )
 }
