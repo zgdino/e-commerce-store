@@ -3,15 +3,30 @@ import { useFilterContext } from '../context/filter_context'
 import { BsFillGridFill, BsList } from 'react-icons/bs'
 import styled from 'styled-components'
 const Sort = () => {
-  const { filtered_products: products, grid_view, setGridView, setListView } = useFilterContext()
+  const {
+    filtered_products: products,
+    grid_view,
+    setGridView,
+    setListView,
+    sort,
+    updateSort,
+  } = useFilterContext()
   return (
     <Wrapper>
       <div className='btn-container'>
-        <button type='button' className={`${grid_view ? 'active' : null}`} onClick={setGridView} >
+        <button
+          type='button'
+          className={`${grid_view ? 'active' : null}`}
+          onClick={setGridView}
+        >
           <BsFillGridFill />
         </button>
         {/* if grid_view is false then apply classname of active */}
-        <button type='button' className={`${!grid_view ? 'active' : null}`} onClick={setListView}>
+        <button
+          type='button'
+          className={`${!grid_view ? 'active' : null}`}
+          onClick={setListView}
+        >
           <BsList />
         </button>
       </div>
@@ -19,11 +34,11 @@ const Sort = () => {
       <hr />
       <form>
         <label htmlFor='sort'>sort by</label>
-        <select name='sort' id='sort' className='sort-input'>
-          <option value="price-lowest">lowest price</option>
-          <option value="price-highest">highest price</option>
-          <option value="name-a">A-Z</option>
-          <option value="name-z">Z-A</option>
+        <select name='sort' id='sort' className='sort-input' value={sort} onChange={updateSort}>
+          <option value='price-lowest'>lowest price</option>
+          <option value='price-highest'>highest price</option>
+          <option value='name-a'>name (A-Z)</option>
+          <option value='name-z'>name (Z-A)</option>
         </select>
       </form>
     </Wrapper>
