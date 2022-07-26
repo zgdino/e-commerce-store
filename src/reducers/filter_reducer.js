@@ -21,16 +21,39 @@ const filter_reducer = (state, action) => {
   }
 
   if (action.type === SET_GRIDVIEW) {
-    return {...state, grid_view:true }
+    return { ...state, grid_view: true }
   }
 
-if (action.type === SET_LISTVIEW) {
-  return { ...state, grid_view: false }
-}
+  if (action.type === SET_LISTVIEW) {
+    return { ...state, grid_view: false }
+  }
 
-if (action.type === UPDATE_SORT) {
-  return { ...state, sort: action.payload }
-}
+  if (action.type === UPDATE_SORT) {
+    return { ...state, sort: action.payload }
+  }
+
+  if (action.type === SORT_PRODUCTS) {
+    const { sort, filtered_products } = state
+    let tempProducts = []
+
+    if (sort === 'price-lowest') {
+      console.log('price-lowest')
+    }
+
+    if (sort === 'price-highest') {
+      console.log('price-highest')
+    }
+
+    if (sort === 'name-a') {
+      console.log('name a-z')
+    }
+
+    if (sort === 'name-z') {
+      console.log('name z-a')
+    }
+
+    return { ...state }
+  }
 
   return state
   throw new Error(`No Matching "${action.type}" - action type`)
