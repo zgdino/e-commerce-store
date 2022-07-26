@@ -34,25 +34,31 @@ const filter_reducer = (state, action) => {
 
   if (action.type === SORT_PRODUCTS) {
     const { sort, filtered_products } = state
-    let tempProducts = []
+    let tempProducts = [...filtered_products]
 
     if (sort === 'price-lowest') {
-      console.log('price-lowest')
+      tempProducts = tempProducts.sort((a, b) => a.price - b.price)
     }
 
     if (sort === 'price-highest') {
-      console.log('price-highest')
+      tempProducts = tempProducts.sort((a, b) => b.price - a.price)
     }
 
     if (sort === 'name-a') {
-      console.log('name a-z')
+      tempProducts = tempProducts.sort((a, b) => {
+        // check localeCompare in docs
+        return a.name.localeCompare(b.name)
+      })
     }
 
     if (sort === 'name-z') {
-      console.log('name z-a')
+      tempProducts = tempProducts.sort((a, b) => {
+        // check localeCompare in docs
+        return b.name.localeCompare(a.name)
+      })
     }
 
-    return { ...state }
+    return { ...state, filtered_products: tempProducts }
   }
 
   return state
