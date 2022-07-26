@@ -11,6 +11,9 @@ import {
 
 const filter_reducer = (state, action) => {
   if (action.type === LOAD_PRODUCTS) {
+    let maxPrice = action.payload.map((p) => p.price)
+    maxPrice = Math.max(...maxPrice)
+    console.log(maxPrice)
     return {
       ...state,
       // copying all the values from the payload, not referencing → this will be the deafult value
