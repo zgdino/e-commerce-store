@@ -41,8 +41,9 @@ export const FilterProvider = ({ children }) => {
 
   // this useEffect will get triggered when products AND state changes
   useEffect(() => {
+    dispatch({ type: FILTER_PRODUCTS })
     dispatch({ type: SORT_PRODUCTS })
-  }, [products, state.sort])
+  }, [products, state.sort, state.filters])
 
   const setGridView = () => {
     dispatch({ type: SET_GRIDVIEW })
