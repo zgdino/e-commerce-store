@@ -22,12 +22,22 @@ const Filters = () => {
     allProducts,
   } = useFilterContext()
 
-  return <Wrapper>
-    <div className="content">
-      {/* prevent default form behaviour which is to refresh the whole page once either <<enter>> is pressed or anything is submitted */}
-      <form onSubmit={(e) => e.preventDefault()}></form>
-    </div>
-  </Wrapper>
+  return (
+    <Wrapper>
+      <div className='content'>
+        {/* prevent default form behaviour which is to refresh the whole page once either <<enter>> is pressed or anything is submitted */}
+        <form onSubmit={(e) => e.preventDefault()}>
+          {/* search input */}
+          <div className='form-control'>
+            {/* name needs to match the name in initialState.filter from filter_context.js which is "text"*/}
+            <input type='text' name='text' placeholder='search' className='search-input'
+            value={text} onChange={updateFilters} />
+          </div>
+          {/* end search input */}
+        </form>
+      </div>
+    </Wrapper>
+  )
 }
 
 const Wrapper = styled.section`
