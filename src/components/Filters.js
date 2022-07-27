@@ -5,7 +5,29 @@ import { getUniqueValues, formatPrice } from '../utils/helpers'
 import { FaCheck } from 'react-icons/fa'
 
 const Filters = () => {
-  return <h4>filters</h4>
+  // grab what you need from filter_context
+  const {
+    filters: {
+      text,
+      category,
+      company,
+      color,
+      min_price,
+      price,
+      max_price,
+      shipping,
+    },
+    updateFilters,
+    clearFilters,
+    allProducts,
+  } = useFilterContext()
+
+  return <Wrapper>
+    <div className="content">
+      {/* prevent default form behaviour which is to refresh the whole page once either <<enter>> is pressed or anything is submitted */}
+      <form onSubmit={(e) => e.preventDefault()}></form>
+    </div>
+  </Wrapper>
 }
 
 const Wrapper = styled.section`
