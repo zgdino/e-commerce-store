@@ -59,7 +59,9 @@ export const FilterProvider = ({ children }) => {
   }
 
   const updateFilters = (e) => {
-    console.log(e.value);
+    let name = e.target.name
+    let value = e.target.value
+    dispatch({ type: UPDATE_FILTERS, payload: { name, value } })
   }
 
   const clearFilters = () => {}
