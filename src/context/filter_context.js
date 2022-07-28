@@ -67,6 +67,10 @@ export const FilterProvider = ({ children }) => {
       // it is impossible to get the value out of the button → for that reason textContent is used
       value = e.target.textContent
     }
+
+    if (name === 'color') {
+      value = e.target.dataset.color
+    }
     dispatch({ type: UPDATE_FILTERS, payload: { name, value } })
   }
 
