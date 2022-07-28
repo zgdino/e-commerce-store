@@ -91,6 +91,22 @@ const Filters = () => {
             <h5>colors</h5>
             <div className='colors'>
               {colors.map((c, index) => {
+                // if the color value is "all"
+                if (c === 'all') {
+                  return (
+                    <button
+                    key={index}
+                      name='color'
+                      onClick={updateFilters}
+                      data-color='all'
+                      className={`${
+                        color === 'all' ? 'all-btn active' : 'all-btn'
+                      }`}
+                    >
+                      all
+                    </button>
+                  )
+                }
                 return (
                   <button
                     key={index}
@@ -101,10 +117,12 @@ const Filters = () => {
                         ? 'color-btn active'
                         : 'color-btn'
                     }`}
-                    // data attribute where we are assigning the attribute of our liking which we will use to access the value out of the button in filter_context.js for the purposes of updateFilter function
+                    // data attribute (in this case we are calling it <<data-color>>) where we are assigning the attribute of our liking which we will use to access the value out of the button in filter_context.js for the purposes of updateFilter function
                     data-color={c}
                     onClick={updateFilters}
-                  >{color === c? <FaCheck/> : null}</button>
+                  >
+                    {color === c ? <FaCheck /> : null}
+                  </button>
                 )
               })}
             </div>
