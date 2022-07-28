@@ -22,11 +22,9 @@ const Filters = () => {
     all_products,
   } = useFilterContext()
 
-  const categories = getUniqueValues(all_products,'category')
-  const companies = getUniqueValues(all_products,'company')
-  const colors = getUniqueValues(all_products,'colors')
-
-  console.log(colors)
+  const categories = getUniqueValues(all_products, 'category')
+  const companies = getUniqueValues(all_products, 'company')
+  const colors = getUniqueValues(all_products, 'colors')
 
   return (
     <Wrapper>
@@ -36,10 +34,28 @@ const Filters = () => {
           {/* search input */}
           <div className='form-control'>
             {/* name needs to match the name in initialState.filter from filter_context.js which is "text"*/}
-            <input type='text' name='text' placeholder='search' className='search-input'
-            value={text} onChange={updateFilters} />
+            <input
+              type='text'
+              name='text'
+              placeholder='search'
+              className='search-input'
+              value={text}
+              onChange={updateFilters}
+            />
           </div>
           {/* end search input */}
+          {/* categories */}
+          <div className="form-control">
+            <h5>category</h5>
+            <div>
+              {categories.map((category, index) => {
+                return <button key={index}>
+                  {category}
+                </button>
+              })}
+            </div>
+          </div>
+          {/* end of categories */}
         </form>
       </div>
     </Wrapper>
