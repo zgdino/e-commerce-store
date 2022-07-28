@@ -62,6 +62,11 @@ export const FilterProvider = ({ children }) => {
   const updateFilters = (e) => {
     let name = e.target.name
     let value = e.target.value
+    // if the name is equal to a category then button is clicked certainly
+    if (name === 'category') {
+      // it is impossible to get the value out of the button → for that reason textContent is used
+      value = e.target.textContent
+    }
     dispatch({ type: UPDATE_FILTERS, payload: { name, value } })
   }
 
