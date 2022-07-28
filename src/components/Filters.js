@@ -86,6 +86,30 @@ const Filters = () => {
             </select>
           </div>
           {/* end of companies */}
+          {/* colors */}
+          <div className='form-control'>
+            <h5>colors</h5>
+            <div className='colors'>
+              {colors.map((c, index) => {
+                return (
+                  <button
+                    key={index}
+                    name='color'
+                    style={{ background: c }}
+                    className={`${
+                      color === c.toLowerCase()
+                        ? 'color-btn active'
+                        : 'color-btn'
+                    }`}
+                    // data attribute where we are assigning the attribute of our liking which we will use to access the value out of the button in filter_context.js for the purposes of updateFilter function
+                    data-color={c}
+                    onClick={updateFilters}
+                  >{color === c? <FaCheck/> : null}</button>
+                )
+              })}
+            </div>
+          </div>
+          {/* end of colors */}
         </form>
       </div>
     </Wrapper>
