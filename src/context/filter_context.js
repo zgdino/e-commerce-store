@@ -76,6 +76,7 @@ export const FilterProvider = ({ children }) => {
       value = Number(value)
     }
     if (name === 'shipping') {
+      // changing shipping from <<false>> to <<true>>
       value = e.target.checked
     }
     dispatch({ type: UPDATE_FILTERS, payload: { name, value } })
