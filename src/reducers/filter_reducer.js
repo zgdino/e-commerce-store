@@ -72,6 +72,7 @@ const filter_reducer = (state, action) => {
   if (action.type === UPDATE_FILTERS) {
     const { name, value } = action.payload
     // setting up the [name] dynamically - google/youtube "how to setup dynamic properties"
+    // returning whole state, from filters all state.filters and dinamicaly assigning value to the [name] property
     return { ...state, filters: { ...state.filters, [name]: value } }
   }
 
