@@ -83,7 +83,7 @@ export const FilterProvider = ({ children }) => {
   }
 
   const clearFilters = () => {
-    dispatch({type: CLEAR_FILTERS, payload: {}})
+    dispatch({ type: CLEAR_FILTERS, payload: {} })
   }
 
   return (

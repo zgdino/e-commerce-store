@@ -76,8 +76,19 @@ const filter_reducer = (state, action) => {
   }
 
   if (action.type === FILTER_PRODUCTS) {
-    console.log('filtering products')
-    return { ...state }
+    const { all_products } = state
+    const { text, category, company, color, price, shipping } = state.filters
+    // every time you are filtering, you always want to have an access to that default data, hence tempProducts
+    let tempProducts = [...all_products]
+    // if text is anything but an empty string
+    if (text) {
+      tempProducts = tempProducts.filter((product) => {
+        // return only products with name starting with an input name; if it does not match that criteria, it will not make it to the array
+        return product.name.toLowerCase().startsWith(text)
+      })
+    }
+    // 
+    return { ...state, filtered_products: tempProducts }
   }
 
   if (action.type === CLEAR_FILTERS) {
