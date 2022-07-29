@@ -70,14 +70,29 @@ const filter_reducer = (state, action) => {
   }
 
   if (action.type === UPDATE_FILTERS) {
-    const {name, value} = action.payload
+    const { name, value } = action.payload
     // setting up the [name] dynamically - google/youtube "how to setup dynamic properties"
-    return {...state, filters:{...state.filters, [name]: value}}    
+    return { ...state, filters: { ...state.filters, [name]: value } }
   }
 
   if (action.type === FILTER_PRODUCTS) {
-    console.log('filtering products');
-    return {...state}
+    console.log('filtering products')
+    return { ...state }
+  }
+
+  if (action.type === CLEAR_FILTERS) {
+    return {
+      ...state,
+      filters: {
+        ...state.filters,
+        text: '',
+        company: 'all',
+        category: 'all',
+        color: 'all',
+        price: state.filters.max_price,
+        shipping: false,
+      },
+    }
   }
 
   return state
