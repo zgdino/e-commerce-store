@@ -88,6 +88,26 @@ const filter_reducer = (state, action) => {
         return product.name.toLowerCase().startsWith(text)
       })
     }
+    // category filtering
+    if (category !== 'all') {
+      // return only the products matching category selected
+      tempProducts = tempProducts.filter(
+        (product) => product.category === category
+      )
+    }
+    // company filtering
+    if (company !== 'all') {
+      tempProducts = tempProducts.filter(
+        (product) => product.company === company
+      )
+    }
+    // color filtering
+    if (color !== 'all') {
+      tempProducts = tempProducts.filter((product) => {
+        // color is part of the colors array, hence find method that checks each color in colors array to match the chosen color
+        return product.colors.find((c) => c === color)
+      })
+    }
     // filtered_products that will be returned are actually the tempProducts gotten out of upstairs conditionals
     return { ...state, filtered_products: tempProducts }
   }
