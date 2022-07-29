@@ -87,7 +87,7 @@ const filter_reducer = (state, action) => {
         return product.name.toLowerCase().startsWith(text)
       })
     }
-    // 
+    // filtered_products that will be returned are actually the tempProducts gotten out of upstairs conditionals
     return { ...state, filtered_products: tempProducts }
   }
 
