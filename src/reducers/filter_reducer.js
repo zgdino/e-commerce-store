@@ -108,6 +108,12 @@ const filter_reducer = (state, action) => {
         return product.colors.find((c) => c === color)
       })
     }
+    // price filtering - show all products priced bellow selected price
+    tempProducts = tempProducts.filter((product) => product.price <= price)
+    // shipping filter
+    if (shipping) {
+      tempProducts = tempProducts.filter((product) => product.shipping === true)
+    }
     // filtered_products that will be returned are actually the tempProducts gotten out of upstairs conditionals
     return { ...state, filtered_products: tempProducts }
   }
