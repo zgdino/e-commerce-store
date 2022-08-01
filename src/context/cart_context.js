@@ -22,6 +22,7 @@ export const CartProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState)
 
   // add to cart
+  // color is mainColor from AddToCart.js component
   const addToCart = (id, color, amount, product) => {
     // remember id:id === id - in payload ES6
     dispatch({ type: ADD_TO_CART, payload: { id, color, amount, product } })
