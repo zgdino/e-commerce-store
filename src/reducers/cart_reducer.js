@@ -11,9 +11,11 @@ const cart_reducer = (state, action) => {
     const {id, color, amount, product} = action.payload
     // return only those items whose id matches with the ones that have the same id + color - if it matches, it means that item is already in the cart, if it does not, we are adding a brand new item
     const tempItem = state.cart.find((i) => i.id === id + color)
+    // if the item already exists
     if (tempItem) {
-
+      
     }
+    // if adding a new item
     else {
       const newItem = {
         id: id + color,
