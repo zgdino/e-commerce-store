@@ -6,6 +6,7 @@ import { CartContent, PageHero } from '../components'
 
 const CartPage = () => {
   const { cart } = useCartContext()
+  // if cart is empty
   if (cart.length < 1) {
     return (
       <Wrapper className='page-100'>
