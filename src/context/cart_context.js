@@ -50,7 +50,7 @@ export const CartProvider = ({ children }) => {
   const toggleAmount = (id, value) => {}
 
   const clearCart = () => {
-    dispatch({type: CLEAR_CART})
+    dispatch({ type: CLEAR_CART })
   }
 
   useEffect(() => {
@@ -58,7 +58,9 @@ export const CartProvider = ({ children }) => {
   }, [state.cart])
 
   return (
-    <CartContext.Provider value={{ ...state, addToCart }}>
+    <CartContext.Provider
+      value={{ ...state, addToCart, removeItem, toggleAmount, clearCart }}
+    >
       {children}
     </CartContext.Provider>
   )
