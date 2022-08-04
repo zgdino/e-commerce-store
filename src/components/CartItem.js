@@ -22,11 +22,19 @@ const CartItem = ({ id, image, name, color, price, amount }) => {
             {/* making span the color of the item in the cart */}
             color: <span style={{ background: color }}></span>
           </p>
-          <h5 className="price-small">{formatPrice(price)}</h5>
+          <h5 className='price-small'>{formatPrice(price)}</h5>
         </div>
       </div>
-      <h5 className="price">{formatPrice(price)}</h5>
+      <h5 className='price'>{formatPrice(price)}</h5>
       <AmountButtons amount={amount} increase={increase} decrease={decrease} />
+      <h5 className='subtotal'>{formatPrice(amount * price)}</h5>
+      <button
+        type='button'
+        className='remove-btn'
+        onClick={() => removeItem(id)}
+      >
+        <FaTrash />
+      </button>
     </Wrapper>
   )
 }
