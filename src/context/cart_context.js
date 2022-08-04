@@ -8,6 +8,7 @@ import {
   COUNT_CART_TOTALS,
 } from '../actions'
 
+  // local storage setup
   const getLocalStorage = () => {
     let cart = localStorage.getItem('cart')
     // is there a "cart" in local storage?
