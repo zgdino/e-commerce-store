@@ -8,18 +8,18 @@ import {
   COUNT_CART_TOTALS,
 } from '../actions'
 
-  // local storage setup
-  const getLocalStorage = () => {
-    let cart = localStorage.getItem('cart')
-    // is there a "cart" in local storage?
-    if (cart) {
-      return JSON.parse(localStorage.getItem('cart'))
-    }
-    // if there is nothing in the cart return an empty array
-    else {
-      return []
-    }
+// local storage setup
+const getLocalStorage = () => {
+  let cart = localStorage.getItem('cart')
+  // is there a "cart" in local storage?
+  if (cart) {
+    return JSON.parse(localStorage.getItem('cart'))
   }
+  // if there is nothing in the cart return an empty array
+  else {
+    return []
+  }
+}
 
 const initialState = {
   // initial state of the cart is linked to what local storage says
@@ -43,9 +43,15 @@ export const CartProvider = ({ children }) => {
     dispatch({ type: ADD_TO_CART, payload: { id, color, amount, product } })
   }
 
-  const removeItem = () => {}
+  const removeItem = (id) => {
+    dispatch({ type: REMOVE_CART_ITEM, payload: id })
+  }
 
-  const clearCart = () => {}
+  const toggleAmount = (id, value) => {}
+
+  const clearCart = () => {
+    dispatch({type: CLEAR_CART})
+  }
 
   useEffect(() => {
     localStorage.setItem('cart', JSON.stringify(state.cart))
