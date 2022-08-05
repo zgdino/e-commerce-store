@@ -90,11 +90,12 @@ const cart_reducer = (state, action) => {
 
         total.total_items += amount
         total.total_amount += price * amount
-        
+
         // always return total with reduce method
         return total
       },
       {
+        // starting point
         total_items: 0,
         total_amount: 0,
       }

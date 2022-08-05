@@ -48,7 +48,7 @@ export const CartProvider = ({ children }) => {
   }
 
   const toggleAmount = (id, value) => {
-    console.log(id, value);
+    console.log(id, value)
     dispatch({ type: TOGGLE_CART_ITEM_AMOUNT, payload: { id, value } })
   }
 
@@ -57,8 +57,8 @@ export const CartProvider = ({ children }) => {
   }
 
   useEffect(() => {
-    
-    dispatch({type: COUNT_CART_TOTALS})
+    // every time cart changes invoke COUNT_CART_TOTALS
+    dispatch({ type: COUNT_CART_TOTALS })
     localStorage.setItem('cart', JSON.stringify(state.cart))
   }, [state.cart])
 
