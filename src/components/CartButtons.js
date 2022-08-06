@@ -8,7 +8,8 @@ import { useUserContext } from '../context/user_context'
 
 const CartButtons = () => {
   const { closeSidebar } = useProductsContext()
-  const {total_items} = useCartContext()
+  const { total_items } = useCartContext()
+  const { loginWithRedirect, muUser, logout } = useUserContext()
   // adding class to be screen responsive(hide/display)
   return (
     <Wrapper className='cart-btn-wrapper'>
@@ -21,6 +22,9 @@ const CartButtons = () => {
       </Link>
       <button type='button' className='auth-btn'>
         Login <FaUserPlus />
+      </button>
+      <button type='button' className='auth-btn'>
+        Logout <FaUserMinus />
       </button>
     </Wrapper>
   )
