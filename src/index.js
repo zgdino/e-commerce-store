@@ -14,13 +14,19 @@ import { Auth0Provider } from '@auth0/auth0-react'
 // MqcGvQWhKbgn3U11S776RhakAE15i93A
 
 ReactDOM.render(
-  <ProductsProvider>
-    <FilterProvider>
-      <CartProvider>
-      <App />
-      </CartProvider>
-    </FilterProvider>
-  </ProductsProvider>,
+  <Auth0Provider
+    domain='dev-oeebqrcp.us.auth0.com'
+    clientId='MqcGvQWhKbgn3U11S776RhakAE15i93A'
+    redirectUri={window.location.origin}
+  >
+    <ProductsProvider>
+      <FilterProvider>
+        <CartProvider>
+          <App />
+        </CartProvider>
+      </FilterProvider>
+    </ProductsProvider>
+  </Auth0Provider>,
 
   document.getElementById('root')
 )

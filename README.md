@@ -14,3 +14,4 @@ FAST_REFRESH=FALSE
 
 - react version 16 has problems loading icons for social media sign in
 - switch to version 17 or later for a fix
+- for documentation regarding react apps search: "react SDK" under Documentation(top right corner)
