@@ -36,9 +36,9 @@ function App() {
         {/* route for SingleProducts is different - single-ing out specific product out of Products ... determined by :id; SingleProduct will have functionality to determine which product to be shown*/}
         <Route exact path='/products/:id' children={<SingleProduct />} />
         {/* Checkout component will eventually be wrapped in a PrivateRoute making sure that only logged in visitors have access */}
-        <Route exact path='/checkout'>
+        <PrivateRoute exact path='/checkout'>
           <Checkout />
-        </Route>
+        </PrivateRoute>
         <Route path='*'>
           <Error />
         </Route>
