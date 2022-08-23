@@ -1,3 +1,4 @@
+// eslint-disable-next-line
 import { act } from 'react-dom/test-utils'
 import {
   SIDEBAR_OPEN,
