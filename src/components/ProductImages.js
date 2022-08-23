@@ -9,7 +9,7 @@ const ProductImages = ({ images = [{ url: '' }] }) => {
   return (
     <Wrapper>
       {/* ---- MAIN IMAGE ---- */}
-      <img src={main.url} alt='main image' className='' />
+      <img src={main.url} alt='main' className='main' />
       {/* ---- GALLERY OF IMAGES ---- */}
       <div className='gallery'>
         {/* index ~ id */}
