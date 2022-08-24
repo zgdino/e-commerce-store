@@ -12,7 +12,7 @@ const CheckoutPage = () => {
     <Wrapper className='page'>
       {cart.length < 1 ? <div className='empty'>
         <h2>your cart is empty</h2>
-        <Link to='/prodcuts' className='btn'>
+        <Link to='/products' className='btn'>
           fill it
         </Link>
       </div> : <StripeCheckout/>}
