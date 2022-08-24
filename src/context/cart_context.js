@@ -52,6 +52,7 @@ export const CartProvider = ({ children }) => {
     dispatch({ type: TOGGLE_CART_ITEM_AMOUNT, payload: { id, value } })
   }
 
+  // clear cart
   const clearCart = () => {
     dispatch({ type: CLEAR_CART })
   }

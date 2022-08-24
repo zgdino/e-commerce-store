@@ -8,7 +8,7 @@ import { useUserContext } from '../context/user_context'
 
 const CartButtons = () => {
   const { closeSidebar } = useProductsContext()
-  const { total_items } = useCartContext()
+  const { total_items, clearCart } = useCartContext()
   const { loginWithRedirect, myUser, logout } = useUserContext()
   // adding class to be screen responsive(hide/display)
   return (
@@ -26,7 +26,10 @@ const CartButtons = () => {
           type='button'
           className='auth-btn'
           // from Auth0 documentation
-          onClick={() => logout({ returnTo: window.location.origin })}
+          onClick={() => {
+            clearCart()
+            logout({ returnTo: window.location.origin })
+          }}
         >
           Logout <FaUserMinus />
         </button>
