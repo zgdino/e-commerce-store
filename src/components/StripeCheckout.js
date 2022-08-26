@@ -28,7 +28,7 @@ const StripeCheckout = () => {
     </Wrapper>
   )
 }
-
+// from stripe docs - custom payment flow
 const Wrapper = styled.section`
   form {
     width: 30vw;
