@@ -58,7 +58,17 @@ const CheckoutForm = () => {
     // eslint-disable-next-line
   }, [])
 
-  return <h4>hello from Stripe Checkout </h4>
+  const handleChange = async(event) => {
+  const handleSubmit = async(ev) => {
+
+  }
+
+  return <div>
+    {/* stripe setup from their docs */}
+    <form id='payment-form' onSubmit={handleSubmit}>
+      <CardElement id='card-element' options={cardStyle} onChange={handleChange}/>
+    </form>
+  </div>
 }
 
 const StripeCheckout = () => {
