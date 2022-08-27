@@ -67,6 +67,12 @@ const CheckoutForm = () => {
     {/* stripe setup from their docs */}
     <form id='payment-form' onSubmit={handleSubmit}>
       <CardElement id='card-element' options={cardStyle} onChange={handleChange}/>
+      {/* if nay of those state values is true, button is disabled */}
+      <button disabled={processing || disabled || succeeded} id='submit'>
+        <span id='button-text'>
+          {processing ? <div className='spinner' id='spinner'></div> : 'Pay'}
+        </span>
+      </button>
     </form>
   </div>
 }
