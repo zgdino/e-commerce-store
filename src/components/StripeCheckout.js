@@ -11,14 +11,14 @@ import axios from 'axios'
 import { useCartContext } from '../context/cart_context'
 import { useUserContext } from '../context/user_context'
 import { formatPrice } from '../utils/helpers'
-import { useHistory } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 const promise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY)
 
 const CheckoutForm = () => {
   const { cart, total_amount, shipping_fee, clearCart } = useCartContext()
   const { myUser } = useUserContext()
-  const history = useHistory()
+  const navigate = useNavigate()
 
   // STRIPE DOCS
 
@@ -86,11 +86,11 @@ const CheckoutForm = () => {
       setError(null)
       setProcessing(false)
       setSucceeded(true)
-      // after successful payment it will clear the cart and redirect to the home page after 10 seconds
+      // after successful payment it will clear the cart and redirect to the home page after 5   seconds
       setTimeout(() => {
         clearCart()
-        history.push('/')
-      }, 10000)
+        navigate('/')
+      }, 5000)
     }
   }
 
